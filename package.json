@@ -1,0 +1,20 @@
+{
+  "name": "word-hunt-solver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/main.js --bundle --outfile=public/bundle.js",
+    "watch": "esbuild src/main.js --bundle --outfile=public/bundle.js --watch",
+    "start": "live-server public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "esbuild": "^0.24.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

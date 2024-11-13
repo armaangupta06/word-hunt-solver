@@ -2,8 +2,10 @@
   "name": "word-hunt-solver",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module", 
   "scripts": {
     "build": "esbuild src/main.js --bundle --outfile=public/bundle.js",
+    "build-trie": "node scripts/buildTrie.js",
     "watch": "esbuild src/main.js --bundle --outfile=public/bundle.js --watch",
     "start": "live-server public"
   },
@@ -12,7 +14,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "esbuild": "^0.24.0"
+    "esbuild": "^0.24.0",
+    "javascript-lp-solver": "^0.4.24"
   },
   "devDependencies": {
     "live-server": "^1.2.2"

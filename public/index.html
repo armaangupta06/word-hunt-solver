@@ -4,18 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Hunt Solver - Blot Control</title>
-<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
-    <h1>Word Hunt Solver - Blot Control</h1>
-    <div id="status">Status: Disconnected</div>
-    <div>
-        <button id="connectButton" class="button">Connect</button>
-        <button id="motorsOnButton" class="button" disabled>Turn Motors On</button>
-        <button id="motorsOffButton" class="button" disabled>Turn Motors Off</button>
-        <button id="setOriginButton" class="button" disabled>Set Origin</button>
-        <button id="goToButton" class="button" disabled>Go To Position</button>
-    </div>
+    <!-- Fixed Header -->
+    <header>
+        <h1>Word Hunt Solver - Blot Control</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Word Search Feature -->
+        <section id="wordSearchContainer">
+            <div id="puzzleContainer">
+                <!-- Placeholder Grid -->
+                <div id="gridContainer">
+                    <!-- Example 5x5 Placeholder Grid -->
+                    <div class="grid-row">
+                        <div class="grid-cell">a</div>
+                        <div class="grid-cell">b</div>
+                        <div class="grid-cell">c</div>
+                        <div class="grid-cell">d</div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="grid-cell">e</div>
+                        <div class="grid-cell">f</div>
+                        <div class="grid-cell">g</div>
+                        <div class="grid-cell">h</div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="grid-cell">i</div>
+                        <div class="grid-cell">j</div>
+                        <div class="grid-cell">k</div>
+                        <div class="grid-cell">l</div>
+      
+                    </div>
+                    <div class="grid-row">
+                        <div class="grid-cell">m</div>
+                        <div class="grid-cell">n</div>
+                        <div class="grid-cell">o</div>
+                        <div class="grid-cell">p</div>
+      
+                    </div>
+                </div>
+
+                <!-- Found Words Container -->
+                <div id="foundWordsContainer">
+                    <!-- Initially empty but maintains max height -->
+                </div>
+
+                <svg id="linesOverlay"></svg>
+            </div>
+
+            <!-- Controls -->
+            <div id="controls">
+                <input type="text" id="wordsInput" placeholder="Enter words separated by commas">
+                <div class="button-group">
+                    <button id="generateButton" class="button">Generate Puzzle</button>
+                    <button id="solveButton" class="button" disabled>Solve Puzzle</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status and Machine Controls -->
+        <section id="machineControls">
+            <div id="status">Status: Disconnected</div>
+            <div class="button-group">
+                <button id="connectButton" class="button">Connect</button>
+                <button id="motorsToggleButton" class="button" disabled>Turn Motors On</button>
+                <button id="penToggleButton" class="button" disabled>Pen Down</button>
+                <button id="setOriginButton" class="button" disabled>Set Origin</button>
+                <button id="goToButton" class="button" disabled>Go To Position</button>
+            </div>
+        </section>
+
+        <div id="scoreContainer">
+            Estimated Score: <span id="estimatedScore">0</span>
+        </div>
+    </main>
+
     <script src="bundle.js"></script>
 </body>
 </html>

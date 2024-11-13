@@ -5,6 +5,7 @@ export async function createHaxidraw(comsBuffer) {
   const port = await createComsManager(comsBuffer)
 
   async function goTo(x, y) {
+    const starTime = performance.now();
     const bytes = floatsToBytes([x, y])
     await port.send('go', bytes)
   }
@@ -24,11 +25,25 @@ export async function createHaxidraw(comsBuffer) {
     await port.send('servo', bytes)
   }
 
-  return {
+  async function drawPath(path) {
+    for (const point of path) {
+        await goTo(point.x, point.y);
+    }
+}
+
+/**
+ * Moves the pen to the origin (0,0).
+ */
+async function setOrigin() {
+    await goTo(0, 0);
+}
+
+return {
     port,
     goTo,
-    // setAccel,
-    // setMaxSpeed,
-    servo
-  }
+    servo,
+    drawPath,
+    setOrigin
+};
 }
+
